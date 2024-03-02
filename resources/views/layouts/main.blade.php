@@ -15,12 +15,14 @@
             <header class="d-flex justify-content-center py-3">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a href="{{ route('welcome') }}" class="nav-link {{ Request::path() == '/' ? 'active':'' }}" aria-current="page">
+                    <a href="{{ route('welcome') }}" class="nav-link {{ Request::path() == '/' ? 'active':'' }}"
+                            aria-current="page">
                         Home
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('gastos.index') }}" class="nav-link {{ Request::path() == 'gastos' ? 'active':'' }}">
+                    <a href="{{ route('gastos.index') }}"
+                            class="nav-link {{ Request::path() == 'gastos' ? 'active':'' }}">
                         Gastos
                     </a>
                 </li>
@@ -33,5 +35,7 @@
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/color-nodes.js') }}"></script>
+        <script src="{{ asset('js/chart.min.js') }}"></script>
+        @yield('scripts')
     </body>
 </html>

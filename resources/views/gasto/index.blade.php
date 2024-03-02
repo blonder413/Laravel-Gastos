@@ -23,14 +23,15 @@
         </h5>
         <div class="card-text">
             <table class="table table-hover table-striped">
+                <caption>Gastos realizados</caption>
                 <thead>
                     <tr class="table-primary">
-                        <td>Id</td>
-                        <td>Detalle</td>
-                        <td>Valor</td>
-                        <td>Created</td>
-                        <td>Updated</td>
-                        <td>Acciones</td>
+                        <th>Id</th>
+                        <th>Detalle</th>
+                        <th>Valor</th>
+                        <th>Created</th>
+                        <th>Updated</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
