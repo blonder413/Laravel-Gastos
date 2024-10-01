@@ -19,7 +19,7 @@ class WelcomeController extends Controller
         $datos = DB::select(
             'SELECT SUM(valor) as total,
             date_format(created_at, "%Y-%m") as mes from gastos
-            group by mes ORDER BY mes ASC LIMIT 0, 12;'
+            group by mes ORDER BY mes DESC LIMIT 0, 12;'
         );
         $gastos_grafico = [];
         foreach ($datos as $key => $value) {

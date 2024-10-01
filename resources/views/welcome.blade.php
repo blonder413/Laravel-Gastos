@@ -8,7 +8,7 @@
     <div class="card-body">
         <h5 class="card-title"></h5>
         <div class="row">
-            <div class="col-sm-12 col-md-6 mb-3">
+            <div class="col-sm-12 col-md-4 mb-3">
                 <table class="card-text table table-hover table-striped">
                     <caption>Gastos realizados</caption>
                     <thead class="table-primary">
@@ -27,7 +27,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-8">
                 <canvas id="myChart"></canvas>
             </div>
         </div>
