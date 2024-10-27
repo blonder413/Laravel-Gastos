@@ -18,8 +18,9 @@ class GastoController extends Controller
         $detalle = $request->detalle;
         $valor = $request->valor;
         $fecha = $request->fecha;
-        $gastos = Gasto::orderBy('id', 'desc')->detalle($detalle)->valor($valor)->fecha($fecha)->paginate(10);
-        $gastos->appends(['detalle' => $detalle, 'valor' => $valor, 'fecha' => $fecha]);
+        $gastos = Gasto::orderBy('id', 'desc')->detalle($detalle)->valor($valor)->fecha($fecha)->paginate(10)
+            ->withQueryString();
+        // $gastos->appends(['detalle' => $detalle, 'valor' => $valor, 'fecha' => $fecha]);
 
         return view('gasto/index', compact('gastos', 'request'));
     }
