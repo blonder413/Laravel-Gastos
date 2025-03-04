@@ -65,7 +65,7 @@
                         <td>{{ $gasto->created_at }}</td>
                         <td>{{ $gasto->updated_at }}</td>
                         <td>
-                            <form action="{{ route('gastos.destroy', $gasto) }}" method="post">
+                            <form id="form-eliminar-gasto" action="{{ route('gastos.destroy', $gasto) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <a href="{{ route('gastos.edit', $gasto) }}" class="btn btn-outline-secondary btn-sm">
@@ -96,4 +96,29 @@
 </div>
 
 
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const formulario = document.forms['form-eliminar-gasto']
+        formulario.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            Swal.fire({
+                title: 'Eliminar Registro!',
+                text: 'Quiere eliminar este registro?',
+                icon: 'error',
+                cancelButtonText: 'No',
+                confirmButtonText: 'Si',
+                showCancelButton: true,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    formulario.submit();
+                }
+            })
+        })
+    });
+</script>
 @endsection
