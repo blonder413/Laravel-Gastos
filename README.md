@@ -4,15 +4,12 @@ Cada que se haga un gasto se registra en la aplicación, definimos unos montos d
 el total gastado en el mes con el color correspondiente, esto nos permite saber de forma rápida si hemos gastado más
 de lo presupuestado o si estamos cerca de hacerlo.
 
-## Ver consultas generadas por Eloquent
+## Instalación
 
-Podemos mostrar las consultas ejecutadas usando los siguientes comandos al principio y al final respectivamente.
-Para eso es importante llamar al namespace respectivo
-
-```php
-use Illuminate\Support\Facades\DB;
-...
-DB::enableQueryLog(); // Enable query log
-// Consultas SQL
-dd(DB::getQueryLog()); // Show results of log
+```bash
+git clone https://github.com/blonder413/Laravel-Gastos.git
+cd Laravel-Gastos
+composer install
 ```
+
+La creación de la base de datos es manual por ahora.
