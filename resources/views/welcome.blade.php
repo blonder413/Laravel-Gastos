@@ -36,7 +36,7 @@
         </p>
     </div>
     @php
-    if ($total < 2000000) { $class='text-success' ; } elseif ($total < 3000000) { $class='text-warning' ; } else { $class='text-danger' ; } @endphp <div class="card-footer text-body-secondary d-flex justify-content-center {{ $class }} fw-bold">
+    if ($total < config('app.max_good_amount')) { $class='text-success' ; } elseif ($total < config('app.max_warning_amount')) { $class='text-warning' ; } else { $class='text-danger' ; } @endphp <div class="card-footer text-body-secondary d-flex justify-content-center {{ $class }} fw-bold">
         $ {{ number_format($total, 0, ',', '.') }}
 </div>
 </div>
@@ -44,6 +44,10 @@
 
 @section('scripts')
 <script>
+    const maxGood = Number(@json(config('app.max_good_amount')));
+    const maxWarning = Number(@json(config('app.max_warning_amount')));
+    const maxCritical = Number(@json(config('app.max_critical_amount')));
+
     const ctx = document.getElementById('myChart').getContext('2d');
     const datos = <?= json_encode($gastos_grafico) ?>;
     let fechas = [];
@@ -53,15 +57,22 @@
     for (let i = 0; i < datos.length; i++) {
         fechas[i] = datos[i].mes;
         valores[i] = datos[i].total;
-        if (valores[i] < 2000000) {
-            coloresFondo.push('rgba(75, 192, 192, 0.2)'); // verde
+        if (valores[i] < maxGood) {
+            // verde
+            coloresFondo.push('rgba(75, 192, 192, 0.2)');
             coloresBorde.push('rgba(75, 192, 192, 1)');
-        } else if (valores[i] < 4000000) {
-            coloresFondo.push('rgba(255, 159, 64, 0.2)'); // verde
+        } else if (valores[i] < maxWarning) {
+            // amarillo
+            coloresFondo.push('rgba(255, 159, 64, 0.2)');
             coloresBorde.push('rgba(255, 159, 64, 1)');
-        } else {
-            coloresFondo.push('rgba(255, 99, 132, 0.2)'); // rojo
+        } else if (valores[i] < maxCritical) {
+            // Rojo
+            coloresFondo.push('rgba(255, 99, 132, 0.2)');
             coloresBorde.push('rgba(255, 99, 132, 1)');
+        } else {
+            // Negro (gasto crítico)
+            coloresFondo.push('rgba(0, 0, 0, 0.5)');
+            coloresBorde.push('rgba(0, 0, 0, 1)');
         }
     }
     // https://www.chartjs.org/docs/latest/
@@ -118,10 +129,43 @@
                 yAxisKey: 'Gastos',
             },
             plugins: {
+                legend: {
+                display: true,
+                labels: {
+                    generateLabels: function(chart) {
+                        return [
+                            {
+                                text: 'Bajo',
+                                fillStyle: 'rgba(75, 192, 192, 0.2)',
+                                strokeStyle: 'rgba(75, 192, 192, 1)',
+                                lineWidth: 1
+                            },
+                            {
+                                text: 'Medio',
+                                fillStyle: 'rgba(255, 159, 64, 0.2)',
+                                strokeStyle: 'rgba(255, 159, 64, 1)',
+                                lineWidth: 1
+                            },
+                            {
+                                text: 'Alto',
+                                fillStyle: 'rgba(255, 99, 132, 0.2)',
+                                strokeStyle: 'rgba(255, 99, 132, 1)',
+                                lineWidth: 1
+                            },
+                            {
+                                text: 'Crítico',
+                                fillStyle: 'rgba(0, 0, 0, 0.5)',
+                                strokeStyle: 'rgba(0, 0, 0, 1)',
+                                lineWidth: 1
+                            }
+                        ];
+                    }
+                }
+            },
                 title: {
                     display: true,
                     text: 'Gastos del último año'
-                }
+                },
             },
             scales: {
                 x: {

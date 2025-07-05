@@ -124,6 +124,10 @@ return [
 
     'key' => env('APP_KEY'),
 
+    'max_good_amount' => env('MAX_GOOD_AMOUNT', 1000000),
+    'max_warning_amount' => env('MAX_WARNING_AMOUNT', 2000000),
+    'max_critical_amount' => env('MAX_CRITICAL_AMOUNT', 3000000),
+
     'cipher' => 'AES-256-CBC',
 
     /*
