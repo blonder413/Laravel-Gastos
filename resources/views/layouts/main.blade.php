@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/breadcrumbs.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font/bootstrap-icons.min.css') }}">
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/vnd.microsoft.icon" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}" defer></script>
 </head>
 
 <body>
