@@ -17,3 +17,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+# SonarQube
+/.scannerwork
+sonar-project.properties

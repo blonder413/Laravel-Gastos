@@ -13,3 +13,10 @@ composer install
 ```
 
 La creación de la base de datos es manual por ahora.
+
+# SonarQube
+
+```sh
+php artisan test --coverage-clover=storage/coverage/coverage.xml
+sonar-scanner
+```
