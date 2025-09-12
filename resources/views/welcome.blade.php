@@ -4,9 +4,8 @@
 
 @section('content')
 <div class="card">
-    <h4 class="card-header text-center">Los gastos han sido los siguientes</h4>
+    <h1 class="card-header text-center h4">Los gastos han sido los siguientes</h1>
     <div class="card-body">
-        <h5 class="card-title"></h5>
         <div class="row">
             <div class="col-sm-12 col-md-4 mb-3">
                 <table class="card-text table table-hover table-striped">
@@ -31,9 +30,6 @@
                 <canvas id="myChart"></canvas>
             </div>
         </div>
-        <p class="d-flex justify-content-center">
-            <a href="{{ route('gastos.index') }}" class="btn btn-primary" title="Ir a gastos">Ir a gastos</a>
-        </p>
     </div>
     @php
     if ($total < config('app.max_good_amount')) { $class='text-success' ; } elseif ($total < config('app.max_warning_amount')) { $class='text-warning' ; } else { $class='text-danger' ; } @endphp <div class="card-footer text-body-secondary d-flex justify-content-center {{ $class }} fw-bold">
