@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     libzip-dev \
+    libicu-dev \
     zip \
     unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
@@ -22,6 +23,7 @@ RUN apt-get update && apt-get install -y \
         gd \
         zip \
         opcache \
+        intl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
