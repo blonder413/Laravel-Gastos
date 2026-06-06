@@ -1,4 +1,4 @@
-FROM php:8.4-fpm
+FROM php:8.5-fpm
 
 RUN apt-get update && apt-get install -y \
     git \
@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y \
         bcmath \
         gd \
         zip \
-        opcache \
         intl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*

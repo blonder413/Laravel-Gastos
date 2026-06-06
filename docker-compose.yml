@@ -78,6 +78,10 @@ services:
 networks:
   gastos-network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.42.13.0/24
+          gateway: 172.42.13.1
 
 volumes:
   gastos-mysql-data:
