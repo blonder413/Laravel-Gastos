@@ -7,4 +7,3 @@ sonar.exclusions=**/vendor/**,**/tests/**
 sonar.php.coverage.reportPaths=storage/coverage/coverage.xml
 
 sonar.host.url=http://localhost:9000
-sonar.token=

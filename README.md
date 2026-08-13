@@ -175,5 +175,6 @@ npm install && npm run dev
 
 ```bash
 php artisan test --coverage-clover=storage/coverage/coverage.xml
+source .env
 sonar-scanner
 ```
