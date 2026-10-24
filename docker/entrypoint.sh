@@ -14,10 +14,6 @@ if [ ! -f ".env" ]; then
     php artisan key:generate --ansi
 fi
 
-# Fix storage permissions
-chown -R www-data:www-data storage bootstrap/cache
-chmod -R 775 storage bootstrap/cache
-
 # Wait for MySQL to be fully ready (not just TCP-alive, but accepting queries)
 echo "Waiting for MySQL..."
 until php artisan db:show > /dev/null 2>&1; do
