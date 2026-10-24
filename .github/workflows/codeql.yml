@@ -32,8 +32,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - language: php-types
-          build-mode: none
+        - language: php
+          build-mode: autoclean
 
     steps:
     - name: Checkout repository
