@@ -132,6 +132,12 @@ docker compose exec app bash
 # Recrear todo desde cero (BORRA la base de datos)
 docker compose down -v
 docker compose up -d --build
+
+# Verificar paquetes con vulnerabilidades
+docker compose exec app composer audit
+
+# Actualizar paquetes
+docker compose exec app composer update
 ```
 
 ---
