@@ -41,13 +41,13 @@
                                 <button class="btn btn-outline-dark btn-sm" type="submit"><i class='bi bi-search'></i></button>
                             </td>
                             <td>
-                                <input class="form-control" type="text" name="detalle" id="detalle" value="{{ $request->detalle }}">
+                                <input class="form-control" type="text" name="detalle" id="detalle" value="{{ $request->detalle }}" aria-label="Buscar por detalle">
                             </td>
                             <td>
-                                <input class="form-control" type="text" name="valor" id="valor" value="{{ $request->valor }}">
+                                <input class="form-control" type="text" name="valor" id="valor" value="{{ $request->valor }}" aria-label="Buscar por valor">
                             </td>
                             <td>
-                                <input class="form-control" type="text" name="fecha" id="fecha" value="{{ $request->fecha }}">
+                                <input class="form-control" type="text" name="fecha" id="fecha" value="{{ $request->fecha }}" aria-label="Buscar por fecha">
                             </td>
                             <td></td>
                             <td>
